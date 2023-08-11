@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      background-color: brown;
+    }
+  </style>
+
+  <style>
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center;
+    }
+  </style>
+
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 0vh;
+    }
+  </style>
+
+
+  <head>
+    <title>OpenAI Flask Example</title>
+  </head>
+  <body>
+    <h1 style="color: white; font-size: 100px;">Hello, World!</h1>
+    <h1 style="color: pink; font-size: 70px;"> Am a API ask me anything !</h1>
+    <h1 style="color: yellow; font-size: 50px;">Kick me out , if i wrong !  Come on ! Lets fight with your questions </h1>
+    <form id="qa-form">
+      <!-- <input type="text" name="question" id="question-input"> -->
+      <input type="text" name="question" id="question-input" style="width: 400px;">
+      <button type="submit">Submit</button>
+      <h1 style="color: white; font-size: 20px;">Note - All questions will be answered !</h1>
+      <h1 style="color: white; font-size: 18px;">!!! Note - Regrets for UI flaws !!! </h1>
+    </form>
+    <div id="answer"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#qa-form").submit(function (event) {
+        event.preventDefault();
+        const question = $("#question-input").val();
+        $.ajax({
+          type: "POST",
+          url: "/api",
+          contentType: "application/json",
+          data: JSON.stringify({
+            question: question,
+          }),
+          success: function (response) {
+            const answer = response.answer;
+            $("#answer").text("Answer: " + answer);
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
