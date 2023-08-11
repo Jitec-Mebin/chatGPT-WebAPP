@@ -3,11 +3,11 @@ chatGPT-WebAPP
 
 Execution 
 
-Crate a folder in the name of "templates" keep the index.html over there 
+Create a folder in the name of "templates" and keep the index.html over there 
 
-Then run in the cmd terminal  
+Then run it in the cmd terminal  
 
-python openaiiii.py
+E:\shlefApp\otpApp> python openaiiii.py
 
 
-Good Luck ....
+Good Luck...
